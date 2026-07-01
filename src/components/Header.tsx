@@ -1,16 +1,72 @@
-import { Link } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { LogoMark } from './Logo'; // Імпортуємо наш новий логотип
 
 const Header = () => {
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 40) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
-    <header className="w-full p-6 md:px-12 flex justify-between items-center bg-[#fcfbf9] border-b border-stone-100 relative z-50">
-      <Link to="/" className="font-serif text-lg font-bold tracking-[0.25em] text-stone-800 hover:opacity-75 transition">
-        KLEI WORKS
-      </Link>
-      <nav className="space-x-8 text-[11px] uppercase tracking-[0.2em] font-medium text-stone-500">
-        <Link to="/" className="hover:text-stone-900 transition duration-300">Collections</Link>
-        <Link to="/artists" className="hover:text-stone-900 transition duration-300">Artists</Link>
-        <Link to="/philosophy" className="hover:text-stone-900 transition duration-300">Philosophy</Link>
-      </nav>
+    <header 
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ease-in-out ${
+        isScrolled 
+          ? 'h-36 md:h-40 text-stone-800' 
+          : 'h-24 text-white/90 bg-gradient-to-b from-black/40 to-transparent'
+      }`}
+    >
+      
+      {/* ── ДИНАМІЧНИЙ ФОН ── */}
+      <div 
+        className={`absolute inset-0 w-full h-full transition-all duration-500 ease-in-out pointer-events-none z-0 ${
+          isScrolled ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-6'
+        }`}
+      >
+        <div className="absolute inset-0 bg-[#f2ede4] h-[65%] shadow-sm"></div>
+        <svg
+          viewBox="0 0 1440 120"
+          preserveAspectRatio="none"
+          className="absolute left-0 w-full block text-[#f2ede4]"
+          style={{ top: '65%', height: '55px' }}
+        >
+          <path
+            d="M0,0 L1440,0 L1440,20 C1050,140 450,15 0,55 Z"
+            fill="currentColor"
+          />
+        </svg>
+      </div>
+
+      {/* ── КОНТЕНТ МЕНЮ ── */}
+      <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-16 pt-7 pb-3 flex items-center justify-between">
+        
+        {/* ЛОГОТИП ЛІВОРУЧ (Впроваджено новий LogoMark) */}
+        <div className="w-10 h-10 opacity-95 hover:opacity-100 transition-opacity cursor-pointer flex items-center justify-center">
+          <LogoMark size={38} />
+        </div>
+
+        {/* ЦЕНТР: Навігаційні лінки */}
+        <nav className="hidden md:flex items-center gap-12 font-sans text-[11px] tracking-[0.3em] uppercase font-normal">
+          <a href="#collections" className="hover:opacity-60 transition-opacity duration-300">Collections</a>
+          <a href="#artists" className="hover:opacity-60 transition-opacity duration-300">Artists & Designers</a>
+          <a href="#philosophy" className="hover:opacity-60 transition-opacity duration-300">Philosophy</a>
+        </nav>
+
+        {/* ПРАВА ЧАСТИНА: Контакти */}
+        <div className="font-sans text-[11px] tracking-[0.3em] uppercase font-normal">
+          <a href="#contact" className="hover:opacity-60 transition-opacity duration-300">Contact</a>
+        </div>
+
+      </div>
     </header>
   );
 };

@@ -1,27 +1,42 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
-import Footer from './components/Footer';
-import Home from './pages/Home';
-import Artists from './pages/Artists';
-import Philosophy from './pages/philosophy';
+import Hero from './components/Hero';
+import Collections from './components/Collections';
+import MouldedByNature from './components/MouldedByNature'; // Імпортуємо нову секцію з хвилею
+/*import Philosophy from './components/philosophy';*/
+/*import Contact from './components/Contact';*/
+/*import Footer from './components/Footer';*/
 
 function App() {
   return (
-    <Router>
-      <div className="min-h-screen bg-[#fcfbf9] text-stone-900 flex flex-col justify-between selection:bg-stone-800 selection:text-stone-100">
-        <Header />
-        
-        <main className="flex-grow flex flex-col justify-center">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/artists" element={<Artists />} />
-            <Route path="/philosophy" element={<Philosophy />} />
-          </Routes>
-        </main>
+    <div className="min-h-screen bg-[#faf9f7] text-stone-900 flex flex-col scroll-smooth selection:bg-stone-800 selection:text-stone-100">
+      {/* Розумний хедер, який стежить за скролом */}
+      <Header />
 
-        <Footer />
-      </div>
-    </Router>
+      <main className="w-full flex-1">
+        {/* Hero секція (зафіксована на фоні завдяки sticky) */}
+        <section id="hero">
+          <Hero />
+        </section>
+
+        {/* Секція MouldedByNature, яка своєю хвилею перекриває Hero при скролі */}
+        <MouldedByNature />
+
+        {/* Collections — темна мозаїка */}
+        <section id="collections">
+          <Collections />
+        </section>
+
+        <section id="philosophy">
+          {/* <Philosophy /> */}
+        </section>
+
+        <section id="contact">
+         {/*<Contact /> */}
+        </section>
+      </main>
+
+      {/* <Footer /> */}
+    </div>
   );
 }
 
