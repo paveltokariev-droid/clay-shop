@@ -24,13 +24,15 @@ const Hero = () => {
   return (
     <div 
       id="hero" 
-      className="sticky top-0 w-full h-screen bg-stone-950 text-stone-100 flex flex-col justify-center items-center overflow-hidden z-10"
+      className="fixed top-0 left-0 w-full h-screen bg-stone-950 text-stone-100 flex flex-col justify-center items-center overflow-hidden z-0"
     >
-      {/* Фонове фото */}
-      <div
-        className="absolute inset-0 bg-cover bg-center z-0 scale-[1.02]"
+      
+      {/* Фонове фото: тепер ми соваємо сам блок за допомогою translate-x та translate-y */}
+       <div
+       className="absolute inset-0 bg-cover bg-center z-0 scale-[1.08] translate-x-[-110px] translate-y-[15px] transition-all duration-300"
         style={{ backgroundImage: `url(${bgImage})` }}
-      />
+        />
+      
 
       {/* Затемнення фону */}
       <div 
