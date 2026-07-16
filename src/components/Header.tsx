@@ -57,7 +57,7 @@ const Header = () => {
         {/* ЦЕНТР: Навігаційні лінки */}
         <nav className="hidden md:flex items-center gap-12 font-sans text-[11px] tracking-[0.3em] uppercase font-normal">
           <a href="#collections" className="hover:opacity-60 transition-opacity duration-300">Collections</a>
-          <a href="#artists" className="hover:opacity-60 transition-opacity duration-300">Artists & Designers</a>
+          <a href="#Artists-Designers" className="hover:opacity-60 transition-opacity duration-300">Artists & Designers</a>
           <a href="#philosophy" className="hover:opacity-60 transition-opacity duration-300">Philosophy</a>
         </nav>
 
