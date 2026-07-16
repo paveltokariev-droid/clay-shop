@@ -4,11 +4,10 @@ const MouldedByNature = () => {
   return (
     <section 
       id="artists" 
-      // Теплий темніший сірий колір
+
       className="relative z-20 w-full bg-[#c5c6c0] text-stone-900 min-h-screen flex flex-col pb-24 overflow-visible"
     >
-      
-      {/* ВЕРХНЯ ХВИЛЯ (Вона заїжджає вгору на Hero) */}
+  
       <div className="w-full absolute top-0 left-0 z-30 transform -translate-y-[99%] pointer-events-none">
         <svg
           viewBox="0 0 1440 160"
@@ -23,7 +22,6 @@ const MouldedByNature = () => {
         </svg>
       </div>
 
-      {/* КОНТЕНТ */}
       <div className="max-w-7xl mx-auto w-full px-6 md:px-16 pt-16 md:pt-28 grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-16 items-center flex-grow relative z-20">
         <div className="md:col-span-7 flex justify-center items-center w-full">
           <div className="relative w-full max-w-xl aspect-square md:aspect-[14/13] flex items-center justify-center">
@@ -47,7 +45,7 @@ const MouldedByNature = () => {
         </div>
       </div>
 
-      {/* НИЖНЯ ХВИЛЯ (Робить плавний схід у білий колір) */}
+
       <div className="w-full absolute bottom-0 left-0 z-30 transform translate-y-[99%] pointer-events-none">
         <svg
           viewBox="0 0 1440 160"

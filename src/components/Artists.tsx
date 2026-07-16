@@ -57,17 +57,17 @@ const Artists = () => {
               key={i}
               className={`group cursor-pointer ${a.offset ? 'md:translate-y-14' : ''}`}
             >
-              {/* Image */}
+              
               <div className="overflow-hidden mb-6 relative">
                 <div
                   className="aspect-[3/4] bg-cover bg-center transition-all duration-700 group-hover:scale-105 grayscale group-hover:grayscale-0"
                   style={{ backgroundImage: `url('${a.img}')` }}
                 />
-                {/* Tag overlay */}
+                
                 <div className="absolute top-4 left-4 bg-white/80 backdrop-blur-sm px-3 py-1 text-[9px] uppercase tracking-[0.3em] text-stone-600 font-semibold opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-1 group-hover:translate-y-0">
                   {a.tag}
                 </div>
-                {/* Bottom line reveal */}
+                
                 <div className="absolute bottom-0 left-0 w-0 h-[2px] bg-stone-800 group-hover:w-full transition-all duration-500" />
               </div>
 

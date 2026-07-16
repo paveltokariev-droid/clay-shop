@@ -1,17 +1,9 @@
 import wheelImage from '../assets/pottery-wheel.png';
 
-// ── ШРИФТ ──
-// Додайте у <head>:
-// <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap" rel="stylesheet">
+
 const HEADING_FONT = "font-['Poppins']";
 
-// ── ЛІНІЇ, ПОБУДОВАНІ ПІД РЕАЛЬНЕ ФОТО ──
-// Координати обчислені з альфа-каналу вашого pottery-wheel.png:
-// диск гончарного кола центрований на ~46.6% ширини і ~37.5% висоти зображення,
-// радіус диска ~30% висоти. Нижче — 3 органічні (не ідеально круглі) контури,
-// що йдуть ЗОВНІ диска і не заходять у зону, де руки розходяться врізнобіч
-// (це і викликало ефект "ліній над руками" раніше).
-// viewBox тут — 0..100 = точно контейнер картинки (простіше рахувати у %).
+
 const CeramicContours = () => (
   <svg
     className="absolute inset-0 w-full h-full pointer-events-none opacity-30 z-0"
@@ -38,7 +30,7 @@ const CeramicContours = () => (
   </svg>
 );
 
-// Легке зерно поверх фону
+
 const GrainOverlay = () => (
   <svg className="absolute inset-0 w-full h-full pointer-events-none opacity-[0.12] mix-blend-overlay">
     <filter id="grain">
@@ -68,7 +60,7 @@ const ReshapingSoul = () => {
       />
       <GrainOverlay />
 
-      {/* ── ВЕРХНЯ ЗОНА: 2 шари хвиль різної форми й тону ── */}
+
       <div className="w-full absolute top-0 left-0 z-30 transform -translate-y-[99%] pointer-events-none">
         <svg viewBox="0 0 1440 220" preserveAspectRatio="none" className="w-full block" style={{ height: '170px' }}>
           <defs>
@@ -82,13 +74,13 @@ const ReshapingSoul = () => {
               <stop offset="100%" stopColor="#6b5640" />
             </linearGradient>
           </defs>
-          {/* задній, ширший і плавніший шар */}
+          
           <path
             d="M0,60 C260,10 520,150 800,90 C1040,40 1250,120 1440,50 L1440,220 L0,220 Z"
             fill="url(#waveTopBack)"
             opacity="0.55"
           />
-          {/* передній, гостріший шар */}
+
           <path
             d="M0,110 C320,190 720,60 1080,150 C1260,195 1380,140 1440,110 L1440,220 L0,220 Z"
             fill="url(#waveTopFront)"
@@ -96,7 +88,7 @@ const ReshapingSoul = () => {
         </svg>
       </div>
 
-      {/* ── КОНТЕНТ ── */}
+  
       <div className="max-w-[1400px] mx-auto w-full px-6 md:px-16 pt-24 md:pt-36 grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-16 items-center flex-grow relative z-20">
         <div className="md:col-span-5 flex flex-col space-y-6 md:pr-4 relative z-10">
           <h2 className={`${HEADING_FONT} font-semibold text-[42px] md:text-[56px] tracking-tight leading-[1.05] text-white`}>
@@ -119,10 +111,10 @@ const ReshapingSoul = () => {
 
         <div className="md:col-span-7 flex justify-center md:justify-end items-center w-full relative">
           <div className="relative w-full max-w-[450px] md:max-w-[550px] aspect-square flex items-center justify-center">
-            {/* Лінії — точно під форму фото, без blend-mode */}
+          
             <CeramicContours />
 
-            {/* Зображення — вже прозоре по краях, ізольоване від blend впливів на лінії */}
+        
             <div className="absolute inset-0 z-10 isolate flex items-center justify-center">
               <img
                 src={wheelImage}
@@ -134,7 +126,7 @@ const ReshapingSoul = () => {
         </div>
       </div>
 
-      {/* ── НИЖНЯ ЗОНА: 2 шари хвиль різної форми й тону ── */}
+    
       <div className="w-full absolute bottom-0 left-0 z-30 transform translate-y-[99%] pointer-events-none">
         <svg viewBox="0 0 1440 220" preserveAspectRatio="none" className="w-full block rotate-180" style={{ height: '170px' }}>
           <defs>

@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
-import { LogoMark } from './Logo'; // Імпортуємо наш новий логотип
+import { Link } from 'react-router-dom';
+import { LogoMark } from './Logo'; 
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -26,7 +27,7 @@ const Header = () => {
       }`}
     >
       
-      {/* ── ДИНАМІЧНИЙ ФОН ── */}
+
       <div 
         className={`absolute inset-0 w-full h-full transition-all duration-500 ease-in-out pointer-events-none z-0 ${
           isScrolled ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-6'
@@ -46,22 +47,20 @@ const Header = () => {
         </svg>
       </div>
 
-      {/* ── КОНТЕНТ МЕНЮ ── */}
+
       <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-16 pt-7 pb-3 flex items-center justify-between">
         
-        {/* ЛОГОТИП ЛІВОРУЧ (Впроваджено новий LogoMark) */}
-        <div className="w-10 h-10 opacity-95 hover:opacity-100 transition-opacity cursor-pointer flex items-center justify-center">
-          <LogoMark size={38} />
-        </div>
 
-        {/* ЦЕНТР: Навігаційні лінки */}
+        <Link to="/" className="w-10 h-10 opacity-95 hover:opacity-100 transition-opacity cursor-pointer flex items-center justify-center">
+          <LogoMark size={38} />
+        </Link>
+
         <nav className="hidden md:flex items-center gap-12 font-sans text-[11px] tracking-[0.3em] uppercase font-normal">
           <a href="#collections" className="hover:opacity-60 transition-opacity duration-300">Collections</a>
-          <a href="#Artists-Designers" className="hover:opacity-60 transition-opacity duration-300">Artists & Designers</a>
+          <Link to="/artists" className="hover:opacity-60 transition-opacity duration-300">Artists & Designers</Link>
           <a href="#philosophy" className="hover:opacity-60 transition-opacity duration-300">Philosophy</a>
         </nav>
 
-        {/* ПРАВА ЧАСТИНА: Контакти */}
         <div className="font-sans text-[11px] tracking-[0.3em] uppercase font-normal">
           <a href="#contact" className="hover:opacity-60 transition-opacity duration-300">Contact</a>
         </div>

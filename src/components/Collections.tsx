@@ -4,11 +4,11 @@ const Collections = () => {
   return (
     <section 
       id="collections" 
-      // Світліший холодний сіро-зелений колір
+
       className="relative z-20 w-full bg-[#dbdeda] text-stone-900 min-h-screen flex flex-col pb-24 overflow-visible"
     >
       
-      {/* ВЕРХНЯ ХВИЛЯ (Заїжджає на біле тло над собою) */}
+
       <div className="w-full absolute top-0 left-0 z-30 transform -translate-y-[99%] pointer-events-none">
         <svg
           viewBox="0 0 1440 160"
@@ -53,7 +53,7 @@ const Collections = () => {
         </div>
       </div>
 
-      {/* НИЖНЯ ХВИЛЯ (Схід у білий колір для наступної секції) */}
+
       <div className="w-full absolute bottom-0 left-0 z-30 transform translate-y-[99%] pointer-events-none">
         <svg
           viewBox="0 0 1440 160"

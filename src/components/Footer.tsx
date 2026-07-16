@@ -72,7 +72,7 @@ const Footer = () => {
   return (
     <footer className="relative bg-[#1c1917] text-[#f3ede4] overflow-hidden">
 
-      {/* ── Хвиля зверху ── */}
+  
       <div className="w-full absolute top-0 left-0 pointer-events-none -translate-y-[99%]">
         <svg
           viewBox="0 0 1440 120"
@@ -87,7 +87,7 @@ const Footer = () => {
         </svg>
       </div>
 
-      {/* ── Декоративний фоновий патерн ── */}
+  
       <div className="absolute inset-0 opacity-[0.03] pointer-events-none select-none overflow-hidden">
         <div
           className="absolute -top-24 -right-24 w-[600px] h-[600px] rounded-full border border-[#f3ede4]"
@@ -96,13 +96,13 @@ const Footer = () => {
         <div className="absolute -bottom-32 -left-20 w-[400px] h-[400px] rounded-full border border-[#f3ede4]" />
       </div>
 
-      {/* ── Основний вміст ── */}
+
       <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-16 pt-24 pb-0">
 
-        {/* ── TOP ROW: Бренд + Колонки навігації ── */}
+
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 pb-16 border-b border-[#f3ede4]/10">
 
-          {/* Бренд блок */}
+
           <div className="md:col-span-4 flex flex-col gap-6">
             <div className="flex items-center gap-3">
               <div className="text-[#f3ede4] opacity-90">
@@ -121,7 +121,7 @@ const Footer = () => {
               Each piece — a story waiting to be held.
             </p>
 
-            {/* Соціальні мережі */}
+
             <div className="flex items-center gap-3 pt-2">
               {socialLinks.map((s) => (
                 <a
@@ -136,7 +136,7 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Колонки навігації */}
+
           <div className="md:col-span-8 grid grid-cols-2 sm:grid-cols-3 gap-8">
             {navColumns.map((col) => (
               <div key={col.heading}>
@@ -159,39 +159,7 @@ const Footer = () => {
             ))}
           </div>
         </div>
-
-        {/* ── Підписка на розсилку ── */}
-        <div className="py-10 border-b border-[#f3ede4]/10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
-          <div>
-            <p
-              className="text-lg font-light text-[#f3ede4]/80 tracking-wide"
-              style={{ fontFamily: "'Cormorant Garamond', serif" }}
-            >
-              Stories from the studio, delivered quietly.
-            </p>
-            <p className="text-xs text-[#f3ede4]/35 mt-1 font-light">
-              No noise. Just clay, craft, and new arrivals.
-            </p>
-          </div>
-          <form
-            onSubmit={(e) => e.preventDefault()}
-            className="flex w-full sm:w-auto"
-          >
-            <input
-              type="email"
-              placeholder="your@email.com"
-              className="flex-1 sm:w-56 bg-transparent border border-[#f3ede4]/15 text-[#f3ede4] placeholder-[#f3ede4]/25 text-sm px-4 py-2.5 outline-none focus:border-[#d97757]/50 transition-colors duration-200"
-            />
-            <button
-              type="submit"
-              className="bg-[#d97757] hover:bg-[#c9674a] text-white text-[11px] tracking-[0.25em] uppercase font-medium px-5 py-2.5 transition-colors duration-200"
-            >
-              Subscribe
-            </button>
-          </form>
-        </div>
-
-        {/* ── Legal bar ── */}
+        
         <div className="mx-auto max-w-6xl px-0 py-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-[#f3ede4]/35">
           <span>© {new Date().getFullYear()} Klei Works. All rights reserved.</span>
           <div className="flex gap-5">

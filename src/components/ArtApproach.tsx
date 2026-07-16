@@ -1,23 +1,23 @@
 import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import girlVaseImage from '../assets/girl-vase.png';
-import { LogoMark } from './Logo'; // Імпорт твого реального логотипу
+import { LogoMark } from './Logo'; 
 
 const HEADING_FONT = "font-['Poppins']";
 
-// Точний центр системи координат для обертання та деформації овалів
-const CX = 48.8;
-const CY = 38; // Зміщено нижче, щоб овали ідеально оминали плечі моделі
 
-// Динамічні параметри руху для ефекту "живої глини"
+const CX = 48.8;
+const CY = 38; 
+
+
 const SHAPES_CONFIG = {
   inner: {
     d: 'M 48.80,7.68 C 58.35,7.68 68.26,14.82 73.04,23.09 C 78.48,32.52 76.79,43.81 71.35,53.24 C 66.01,62.48 59.47,68.06 48.80,68.06 C 39.34,68.06 30.49,61.98 25.76,53.79 C 20.15,44.09 22.33,33.23 27.93,23.53 C 33.51,13.86 37.63,7.68 48.80,7.68 Z',
     strokeWidth: 0.22,
     dasharray: null,
-    rotateRange: [0, 180],      // Активне обертання при скролі
-    scaleXRange: [0.85, 1.25],   // Виражений морфінг по горизонталі
-    scaleYRange: [1.2, 0.8],     // Виражений морфінг по вертикалі
+    rotateRange: [0, 180],      
+    scaleXRange: [0.85, 1.25],  
+    scaleYRange: [1.2, 0.8],     
   },
   middle: {
     d: 'M 48.80,-2.52 C 64.42,-2.52 71.23,0.06 79.04,13.59 C 87.40,28.08 88.60,43.67 80.23,58.16 C 72.28,71.94 64.70,80.51 48.80,80.51 C 32.09,80.51 20.48,73.17 12.13,58.70 C 4.14,44.86 3.62,30.71 11.61,16.87 C 18.49,4.96 35.04,-2.52 48.80,-2.52 Z',
@@ -71,7 +71,7 @@ const OrganicShapes = ({ scrollYProgress }: { scrollYProgress: any }) => (
   <svg
     className="absolute inset-0 w-full h-full pointer-events-none z-0"
     viewBox="0 0 100 100"
-    preserveAspectRatio="xMidYMid meet" // Овали не будуть деформуватися розтягуванням вікна
+    preserveAspectRatio="xMidYMid meet" 
     fill="none"
     style={{ overflow: 'visible' }}
   >
@@ -81,10 +81,10 @@ const OrganicShapes = ({ scrollYProgress }: { scrollYProgress: any }) => (
   </svg>
 );
 
-// Кругла печатка з твоїм іменованим імпортованим логотипом
+
 const Seal = () => (
   <div className="relative w-28 h-28 md:w-32 md:h-32 select-none opacity-90">
-    {/* Круговий текст, що плавно обертається */}
+    
     <div className="absolute inset-0 w-full h-full animate-[spin_40s_linear_infinite]">
       <svg viewBox="0 0 160 160" className="w-full h-full">
         <defs>
@@ -104,7 +104,7 @@ const Seal = () => (
       </svg>
     </div>
 
-    {/* Твій реальний LogoMark у центрі */}
+    
     <div className="absolute inset-0 flex items-center justify-center">
       <div className="w-10 h-10 text-[#1c1917] flex items-center justify-center">
         <LogoMark />
@@ -131,11 +131,9 @@ const SingleApproach = () => {
         {/* ЛІВА ЧАСТИНА: Фото + Анімовані овали */}
         <div className="md:col-span-6 flex justify-center md:justify-start items-center w-full relative">
           <div className="relative w-full max-w-[420px] md:max-w-[480px] aspect-square flex items-center justify-center">
-            
-            {/* Овали: Тепер мають правильні пропорції та живий рух під фото */}
+                       
             <OrganicShapes scrollYProgress={scrollYProgress} />
             
-            {/* Зображення дівчини (z-10, перекриває овали) */}
             <img
               src={girlVaseImage}
               alt="Woman holding a ceramic vase with flowers covering her face"

@@ -6,26 +6,25 @@ import rightHand from '../assets/right-hand.png'; // Права рука
 const BrandMovement = () => {
   const containerRef = useRef<HTMLDivElement>(null);
 
-  // 1. Відстежуємо скрол відносно секції
+  
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start end", "end start"]
   });
 
-  // 2. ЗБІЛЬШЕНИЙ РУХ РУК ПО ОСІ Y ТА X (адаптований під нові великі масштаби)
-  // Ліва рука підіймається вгору
+ 
+
   const leftY = useTransform(scrollYProgress, [0, 1], [60, -180]);
-  // Права рука опускається вниз
+
   const rightY = useTransform(scrollYProgress, [0, 1], [-220, 120]);
 
-  // Зсув по осі X для щільного прилягання до великого глиняного кола
   const leftX = useTransform(scrollYProgress, [0, 0.5, 1], [-40, 20, -40]);
   const rightX = useTransform(scrollYProgress, [0, 0.5, 1], [40, -20, 40]);
 
-  // 3. ОБЕРТАННЯ ГЛИНЯНОГО КРУГА (180 градусів)
+
   const clayRotate = useTransform(scrollYProgress, [0, 1], [0, 180]);
 
-  // 4. ОРГАНІЧНИЙ МОРФІНГ ДЛЯ ВЕЛИКОГО КРУГА
+
   const borderRadius = useTransform(
     scrollYProgress,
     [0, 0.5, 1],
@@ -58,13 +57,12 @@ const BrandMovement = () => {
         </svg>
       </div>
 
-      {/* ── ВЕЛИКИЙ ІНТЕРАКТИВНИЙ АРТ-БЛОК ── */}
       <div className="flex-grow flex items-center justify-center relative w-full max-w-[1400px] mx-auto px-4 md:px-12 min-h-[600px] md:min-h-[800px]">
         
-        {/* Контейнер розширено: на десктопі тепер 760px замість 450px */}
+
         <div className="relative w-[340px] h-[340px] md:w-[760px] md:h-[760px] flex items-center justify-center">
           
-          {/* 1. ЛІВА РУКА (Масштабована та піднята вище) */}
+
           <motion.div 
             style={{ y: leftY, x: leftX }}
             className="absolute left-[-22%] md:left-[-28%] w-[52%] h-[92%] z-20 pointer-events-none"
@@ -76,18 +74,16 @@ const BrandMovement = () => {
             />
           </motion.div>
 
-          {/* 2. ЦЕНТРАЛЬНА ГЛИНА (Збільшено з 280px до 480px) */}
+
           <motion.div 
             style={{ borderRadius, rotate: clayRotate }}
             className="w-[220px] h-[220px] md:w-[480px] md:h-[480px] bg-[#8c745a] flex items-center justify-center p-8 md:p-16 text-center shadow-inner relative z-10 select-none"
           >
-            {/* Тонка кругова лінія-орбіта */}
             <motion.div 
               style={{ borderRadius }}
               className="absolute inset-[-12px] md:inset-[-20px] border border-stone-800/10 pointer-events-none scale-105"
             />
-            
-            {/* Текст (шрифт збільшено до text-4xl / 40px для великого екрана) */}
+
             <motion.div 
               style={{ rotate: useTransform(clayRotate, r => -r) }}
               className="w-full h-full flex items-center justify-center"
@@ -99,7 +95,6 @@ const BrandMovement = () => {
             </motion.div>
           </motion.div>
 
-          {/* 3. ПРАВА РУКА (Масштабована) */}
           <motion.div 
             style={{ y: rightY, x: rightX }}
             className="absolute right-[-22%] md:right-[-28%] w-[52%] h-[92%] z-20 pointer-events-none"
@@ -114,7 +109,7 @@ const BrandMovement = () => {
         </div>
       </div>
 
-      {/* ── НИЖНЯ ЧАСТИНА: NEWSLETTER FORM ── */}
+
       <div className="w-full flex flex-col items-center text-center px-6 mt-6 md:mt-12 relative z-20">
         <p className="font-sans text-xs md:text-sm uppercase tracking-[0.2em] text-[#7c654b]/80 mb-3 font-medium">
           Never miss a new collection

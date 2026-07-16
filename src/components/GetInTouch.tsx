@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import toolsImage from '../assets/pottery-tools.jpg'; // Зображення інструментів та тарілки зліва
+import toolsImage from '../assets/pottery-tools.jpg'; 
 
 const GetInTouch = () => {
   const [formData, setFormData] = useState({
@@ -18,22 +18,17 @@ const GetInTouch = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     console.log('Submitted data:', formData);
-    // Тут логіка обробки форми
   };
 
   return (
     <section 
       id="contact" 
-      // Світлий сіро-кам'яний колір, що безшовно продовжує попередню секцію
+
       className="relative z-20 w-full bg-[#cbd1cc] text-[#1c1917] min-h-screen flex flex-col pb-36 overflow-visible"
     >
       
-      {/* ── ВЕРХНЯ ХВИЛЯ НЕ ПОТРІБНА: Секція є безпосереднім продовженням нижньої хвилі ReshapingSoul ── */}
-
-      {/* ── КОНТЕНТ СЕКЦІЇ ── */}
       <div className="max-w-7xl mx-auto w-full px-6 md:px-16 pt-24 md:pt-36 grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-16 items-center flex-grow relative z-20">
-        
-        {/* ЛІВА ЧАСТИНА: Інструменти та глиняний посуд (5 колонок) */}
+
         <div className="md:col-span-5 flex justify-center items-center w-full relative">
           <div className="relative w-full max-w-md aspect-[4/3] md:aspect-[1.1/1] flex items-center justify-center rounded-lg overflow-hidden shadow-sm">
             <img 
@@ -44,15 +39,13 @@ const GetInTouch = () => {
           </div>
         </div>
 
-        {/* ПРАВА ЧАСТИНА: Мінімалістична форма (7 колонок) */}
         <div className="md:col-span-7 flex flex-col justify-center items-start w-full md:pl-8">
           <h2 className="font-sans font-medium text-[42px] md:text-[52px] tracking-tight text-stone-900 mb-8">
             Get in touch.
           </h2>
 
           <form onSubmit={handleSubmit} className="w-full max-w-lg space-y-6">
-            
-            {/* First Name */}
+
             <div className="relative w-full">
               <input
                 type="text"
@@ -65,7 +58,6 @@ const GetInTouch = () => {
               />
             </div>
 
-            {/* Last Name */}
             <div className="relative w-full">
               <input
                 type="text"
@@ -78,7 +70,6 @@ const GetInTouch = () => {
               />
             </div>
 
-            {/* Email */}
             <div className="relative w-full">
               <input
                 type="email"
@@ -91,7 +82,6 @@ const GetInTouch = () => {
               />
             </div>
 
-            {/* Organisation */}
             <div className="relative w-full">
               <input
                 type="text"
@@ -103,7 +93,6 @@ const GetInTouch = () => {
               />
             </div>
 
-            {/* Message */}
             <div className="relative w-full">
               <textarea
                 name="message"
@@ -116,7 +105,7 @@ const GetInTouch = () => {
               />
             </div>
 
-            {/* Кнопка відправки у вигляді тексту зі стрілкою */}
+
             <button
               type="submit"
               className="group flex items-center space-x-3 pt-6 text-xs md:text-sm font-medium uppercase tracking-widest text-stone-900 hover:text-stone-700 transition-colors focus:outline-none"
@@ -138,12 +127,12 @@ const GetInTouch = () => {
 
       </div>
 
-      {/* ── НИЖНЯ ХВИЛЯ (Чисто біла, закриває сторінку) ── */}
+
       <div className="w-full absolute bottom-0 left-0 z-30 transform translate-y-[99%] pointer-events-none">
         <svg
           viewBox="0 0 1440 160"
           preserveAspectRatio="none"
-          className="w-full block text-white rotate-180" // Робимо вихід у білий колір
+          className="w-full block text-white rotate-180"
           style={{ height: '140px' }}
         >
           <path
